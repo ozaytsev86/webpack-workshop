@@ -7,6 +7,18 @@ body {
 }
 ```
 
+```javascript
+// webpack.config.js
+
+{
+    test: /\.(css|scss)$/,
+    use: [
+      'style-loader',
+      'css-loader',
+    ]
+  },
+```
+
 2
 ```scss
 // src/App.scss
@@ -25,7 +37,7 @@ body {
 // webpack.config.js
 
 {
-    test: /\.(css)$/,
+    test: /\.(css|scss)$/,
     use: [
       'style-loader',
       'css-loader',
