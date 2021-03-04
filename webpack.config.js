@@ -2,11 +2,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
+  target: 'web',
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      components: 'src/components/shared/slahflasdf/asdfasdf'
+    }
   },
   resolveLoader: {
     alias: {
@@ -15,7 +20,6 @@ module.exports = {
       svgAsReactComponent: '@svgr/webpack',
     }
   },
-
   module: {
     rules: [
       // transpile js and jsx files to JS
@@ -27,7 +31,12 @@ module.exports = {
         test: /\.(css|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            }
+          },
           {
             loader: "postcss-loader",
             options: {
@@ -43,7 +52,12 @@ module.exports = {
               },
             },
           },
-          'sass-loader'
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
         ]
       },
       {
@@ -71,12 +85,22 @@ module.exports = {
       template: './index.html'
     }),
     new MiniCssExtractPlugin(),
-    new ESLintPlugin(),
-    new StylelintPlugin(),
+    new ESLintPlugin({
+      emitWarning: true,
+      failOnError: false,
+    }),
+    new StylelintPlugin({
+      emitWarning: true,
+      failOnError: false,
+    }),
+    new Dotenv(),
   ],
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
-    // open: true,
+    open: true,
     progress: true,
+    hot: true,
+    port: 8081
   },
   output: {
     publicPath: '/',
