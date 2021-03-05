@@ -21,6 +21,7 @@
   "homepage": "https://github.com/ozaytsev86/webpack-workshop#readme",
   "devDependencies": {
     "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.13.9",
     "@babel/preset-react": "^7.12.13",
     "@svgr/webpack": "^5.5.0",
     "babel-eslint": "^10.1.0",

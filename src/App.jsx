@@ -8,7 +8,11 @@ const LazyComponent = lazy(() => import(/* webpackChunkName: "LazyComponent" */ 
 // const CatIcon = require('svgAsReactComponent!./statics/images/CatIcon.svg').default;
 import CatIcon from './statics/images/CatIcon.svg';
 
+import {summa} from './utils';
+
 function App() {
+  const s = summa();
+  console.log(s);
   return (
     <div>
       <Suspense fallback="Loading...">

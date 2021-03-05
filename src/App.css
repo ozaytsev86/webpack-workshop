@@ -10,12 +10,6 @@ body {
     background-size: cover;
 }
 
-.yawn-kitten {
-    width: 150px;
-    height: 150px;
-    background-image: url('statics/images/YawnKitten.jpg');
-    background-size: cover;
-}
 
 @font-face {
     font-family: 'Font Awesome 5 Free';
